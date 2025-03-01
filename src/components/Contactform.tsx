@@ -57,7 +57,7 @@
 //   };
   
 //   export default ContactForm;
-import React from "react";
+// import React from "react";
 const ContactForm = () => {
     return (
       <section className="bg-[#006abc] text-white py-25 px-6 col-span-12">

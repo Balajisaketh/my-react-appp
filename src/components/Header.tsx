@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import supreme from "../assets/Supreme_logos (3).png"
 const HeroSection = () => {
   return (
