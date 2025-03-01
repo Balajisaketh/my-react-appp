@@ -200,15 +200,15 @@ import trnk from "../assets/trnk.png"
 import front from "../assets/front.png"
 import { useDispatch } from "react-redux";
 import videoFullBody from "../assets/fullbody.mp4";
-import videoFront from "../assets/front.mp4";
+// import videoFront from "../assets/front.mp4";
 import videoCabin from "../assets/cabin.mp4";
 import videoTrunk from "../assets/trunk.mp4";
 import videoExterior from "../assets/exteriro.mp4";
-import commfull from "../assets/commfull.mp4"
+// import commfull from "../assets/commfull.mp4"
 import { setcriteria,setcriteriaa } from "../redux/CounterSlice";
 import exterior from "../assets/exterio.png"
 import cabin from "../assets/cabin.png"
-import { createBox } from "framer-motion";
+// import { createBox } from "framer-motion";
 export default function Banner() {
   const [highlight, setHighlight] = useState<"top" | "bottom" | null>(null);
   // const [citeria,Setcriteria]=useState<string>("")
