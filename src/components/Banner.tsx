@@ -259,19 +259,19 @@ export default function Banner() {
       {/* Main Content */}
       <div className="w-full grid grid-cols-1 md:grid-cols-12 ">
         {/* Left Section */}
-        <div className="col-span-12 m-3 text-center md:col-span-12 text-center m-6">
+        <div className="col-span-12 m-3 text-center md:col-span-12  text-center m-6">
           <h2 className="text-lg  mb-2 md:text-3xl mb-2">
             Evolving the drive with <span className="font-bold">360-degree</span>
           </h2>
           <h2 className="text-lg md:text-3xl">comprehensive solutions</h2>
         </div>
 {/* hu */}
-<div ref={contentRef} className="lg:hidden">
+<div ref={contentRef} className="text-center lg:hidden md:block w-full   col-span-12  text-center">
             {/* Top Content */}
             <button
               ref={topRef}
               onClick={()=>setHighlight("top")}
-              className={highlight === "top" ? "text-white text-left" : "text-gray text-left"}
+              className={highlight === "top" ? "text-white text-center" : "text-gray text-center  "}
             >
               <div className={highlight === "top" ? "text-blue-500 text-center mx-auto" : "mx-auto text-gray text-center"} onClick={()=>{
  Setcat("passenger")
@@ -280,14 +280,50 @@ export default function Banner() {
                 // disp(setcriteriaa("passenger"))
                 }>
                 <h2 className="text-xl text-center m-2 font-semibold">Passenger Vehicles</h2>
-                <p className="text-sm m-2 font-base">Revving up innovation from </p>
-                <p className="text-sm m-2 font-base"> interior to exterior.</p>
-                <div id="indicators-carousel" className="block relative w-full md:hidden" data-carousel="static">
+                <p className="text-sm m-2 font-base md:hidden">Revving up innovation from </p>
+                <p className="text-sm m-2 font-base hidden lg:hidden md:block">Revving up innovation from interior to exterior. </p>
+                <p className="text-sm m-2 font-base md:hidden"> interior to exterior.</p>
+                <div id="indicators-carousel" className="block relative w-full" data-carousel="static">
     {/* <!-- Carousel wrapper --> */}
-    <div className="relative w-full ">
+    <div className="relative w-full bg-yellow-900   mx-auto text-center ">
       {/* Video Display */}
-      <div className="relative h-56 md:h-96 overflow-hidden rounded-lg">
+      <div className="relative h-56 md:h-auto  overflow-hidden rounded-lg md:hidden">
         <video key={videos[activeIndex].src} width="400" autoPlay loop>
+          <source src={videos[activeIndex].src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      </div>
+    {/* <!-- Slider indicators --> */}
+    {/* <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3 md:absolute bottom-4 left-1/2 space-x-3">
+        {videos.map((_video, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveIndex(index)}
+            className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-colors ${
+              activeIndex === index ? "bg-blue-500" : "bg-gray-500"
+            }`}
+          />
+        ))}
+      </div> */}
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3 md:hidden">
+  {videos.map((_video, index) => (
+    <button
+      key={index}
+      onClick={() => setActiveIndex(index)}
+      className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-colors ${
+        activeIndex === index ? "bg-blue-500" : "bg-gray-500"
+      }`}
+    />
+  ))}
+</div>
+
+
+{/* md value */}
+<div className="hidden md:block  relative w-full  mx-auto text-center">
+      {/* Video Display */}
+      <div className="relative h-56 md:h-auto rounded-lg">
+        <video key={videos[activeIndex].src} width="4000" autoPlay loop>
           <source src={videos[activeIndex].src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -306,6 +342,7 @@ export default function Banner() {
         ))}
       </div>
 
+{/* md */}
   
     {/* <!-- Slider controls --> */}
   
@@ -330,12 +367,12 @@ export default function Banner() {
                 <h2 className="text-2xl m-2 font-semibold">Commercial Vehicles</h2>
                 <p className="text-sm m-2 font-base">Advancing engineering </p>
                 <p className="text-sm m-2 font-base">for heavy-duty vehicles.</p>
-                <div id="indicators-carousel" className="block relative w-full md:hidden" data-carousel="static">
+                <div id="indicators-carousel" className="block relative w-full" data-carousel="static">
     {/* <!-- Carousel wrapper --> */}
-    <div className="relative w-full ">
+    <div className="relative w-full">
       {/* Video Display */}
-      <div className="relative h-56 md:h-96 overflow-hidden rounded-lg">
-        <video key={videos[activeIndex].src} width="400" autoPlay loop>
+      <div className="relative h-56 md:h-auto overflow-hidden rounded-lg">
+        <video key={videos[activeIndex].src} width="4000" autoPlay loop>
           <source src={videos[activeIndex].src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -369,8 +406,8 @@ export default function Banner() {
 {/* hu */}
 
         {/* Vertical Line with Content */}
-        <div className="hidden md:flex col-span-12">
-        <div className="hidden md:flex items-center space-x-6 py-10 mx-20 col-span-6  ">
+        <div className="hidden lg:flex col-span-12">
+        <div className="hidden lg:flex items-center space-x-6 py-10 mx-20 col-span-6  ">
           {/* Vertical Line (Height Adjusts Dynamically) */}
           <div className="hidden md:block relative flex flex-col items-center">
             <div
@@ -432,7 +469,7 @@ export default function Banner() {
             </button>
           </div>
         </div>
-        <div className="sm:hidden md:flex items-center space-x-6 py-10 mx-20 col-span-4">
+        <div className="hidden md:block flex items-center space-x-6 py-10 mx-20 col-span-4">
           {/* <h1>hy</h1> */}
           <div>
             
