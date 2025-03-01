@@ -295,7 +295,7 @@ export default function Banner() {
       </div>
     {/* <!-- Slider indicators --> */}
     <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-3">
-        {videos.map((video, index) => (
+        {videos.map((_video, index) => (
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
