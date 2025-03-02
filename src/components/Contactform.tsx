@@ -1,68 +1,63 @@
 import { useState } from "react";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-  
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [fullNameError, setFullNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [companyError, setCompanyError] = useState("");
+  const [messageError, setMessageError] = useState("");
+
   const [showPopup, setShowPopup] = useState(false);
-  const [errors, setErrors] = useState({
-    fullName:"",
-    email:"",
-    company:"",
-    message:""
 
+  const handleChange = (setter: React.Dispatch<React.SetStateAction<string>>, setError: React.Dispatch<React.SetStateAction<string>>) => 
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setter(e.target.value);
+      setError(""); // Clear error when user types
+    };
 
-
-
-  });
-
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-
-    // Clear error when user starts typing
-    setErrors({ ...errors, [name]: "" });
-  };
-  interface FormErrors {
-    fullName?: string;
-    email?: string;
-    company?: string;
-    message?: string;
-  }
   const validateForm = () => {
-    // let newErrors: y = {};
-    const newErrors: FormErrors = {}; 
+    let isValid = true;
 
-    if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+    if (!fullName.trim()) {
+      setFullNameError("Full Name is required");
+      isValid = false;
     }
-    if (!formData.company.trim()) newErrors.company = "Company name is required";
-    if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setEmailError("Invalid email format");
+      isValid = false;
+    }
+    if (!company.trim()) {
+      setCompanyError("Company name is required");
+      isValid = false;
+    }
+    if (!message.trim()) {
+      setMessageError("Message cannot be empty");
+      isValid = false;
+    }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return isValid;
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     if (validateForm()) {
-      // console.log("Form Submitted Successfully:", formData);
       setShowPopup(true);
-      setTimeout(() => setShowPopup(false), 3000); 
-      // alert("Form submitted successfully!");
-      
-      // Clear form after submission
-      setFormData({ fullName: "", email: "", company: "", message: "" });
+      setTimeout(() => setShowPopup(false), 3000); // Hide popup after 3s
+
+      // Clear form
+      setFullName("");
+      setEmail("");
+      setCompany("");
+      setMessage("");
     }
-  };
+  }
 
   return (
     <section className="bg-[#006abc] text-white py-25 px-6 col-span-12">
@@ -99,11 +94,13 @@ const ContactForm = () => {
                 type="text"
                 name="fullName"
                 placeholder="Full name"
-                value={formData.fullName}
-                onChange={handleChange}
+                value={fullName}
+                onChange={handleChange(setFullName, setFullNameError)}
                 className="w-full md:w-3/4 p-4 border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-300 focus:outline-white hover:border-white transition outline-none mb-1 text-lg"
               />
-              {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+              {/* {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+               */}
+                {fullNameError && <p className="text-red-500 text-sm">{fullNameError}</p>}
             </div>
 
             <div>
@@ -111,11 +108,14 @@ const ContactForm = () => {
                 name="email"
                 type="email"
                 placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
+                value={email}
+                onChange={handleChange(setEmail, setEmailError)}
                 className="w-full md:w-3/4 p-4 border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-300 focus:outline-white hover:border-white transition outline-none mb-1 text-lg"
               />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              {/* {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+              {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+               */}
+               {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
             </div>
 
             <div>
@@ -123,22 +123,25 @@ const ContactForm = () => {
                 type="text"
                 name="company"
                 placeholder="Company"
-                value={formData.company}
-                onChange={handleChange}
+                value={company}
+                onChange={handleChange(setCompany, setCompanyError)}
                 className="w-full md:w-3/4 p-4 border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-300 focus:outline-white hover:border-white transition outline-none mb-1 text-lg"
               />
-              {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>}
+               {companyError && <p className="text-red-500 text-sm">{companyError}</p>}
+              {/* {errors.company && <p className="text-red-500 text-sm">{errors.company}</p>} */}
             </div>
 
             <div>
               <textarea
                 name="message"
                 placeholder="Message"
-                value={formData.message}
-                onChange={handleChange}
+                value={message}
+                onChange={handleChange(setMessage, setMessageError)}
                 className="w-full md:w-3/4 p-2 border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-300 focus:outline-white hover:border-white transition outline-none resize-none h-24 mb-1 text-lg"
               ></textarea>
-              {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+              {/* {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+               {messageError && <p className="text-red-500 text-sm">{messageError}</p>} */}
+                {messageError && <p className="text-red-500 text-sm">{messageError}</p>}
             </div>
 
             <button
