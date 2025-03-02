@@ -1,5 +1,9 @@
 // import React from "react";
 import supreme from "../assets/Supreme_logos (3).png"
+// import FontAwesomeIcon from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+
 const HeroSection = () => {
   return (
     <div className="relative w-full h-screen bg-gray-800 text-white flex flex-col items-center justify-center px-4">
@@ -9,14 +13,11 @@ const HeroSection = () => {
           <img src={supreme} className="w-30 h-10"/>
         </div>
         <div className="flex items-center gap-4">
-        <button className="hidden md:block bg-[#5cd6ff] text-white px-4 py-2 rounded-full">
+        {/* <button className="hidden md:block bg-[#5cd6ff] text-white px-4 py-2 rounded-full">
   Contact Us
-</button>
+</button> */}
 
-          <div className="hidden md:block flex gap-2">
-            <a href="#" className="text-gray-600">🔗 LinkedIn</a>
-            <a href="#" className="text-gray-600">📄 Docs</a>
-          </div>
+          
         </div>
       </nav>
       
