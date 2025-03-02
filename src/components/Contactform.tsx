@@ -7,6 +7,7 @@ const ContactForm = () => {
     company: "",
     message: "",
   });
+  
   const [showPopup, setShowPopup] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -17,9 +18,15 @@ const ContactForm = () => {
     // Clear error when user starts typing
     setErrors({ ...errors, [name]: "" });
   };
-
+  interface FormErrors {
+    fullName?: string;
+    email?: string;
+    company?: string;
+    message?: string;
+  }
   const validateForm = () => {
-    let newErrors: any = {};
+    // let newErrors: y = {};
+    const newErrors: FormErrors = {}; 
 
     if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required";
     if (!formData.email.trim()) {
