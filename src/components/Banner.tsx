@@ -217,7 +217,7 @@ export default function Banner() {
   const topRef = useRef<HTMLButtonElement>(null);
   const bottomRef = useRef<HTMLButtonElement>(null);
   const [lineHeight, setLineHeight] = useState(0);
-  const [cat,Setcat]=useState<string>('')
+  const [cat,Setcat]=useState<string>('passenger')
   const [activeIndex, setActiveIndex] = useState(0);
   const videos = [
     { src: videoFullBody, label: "Full Body" },

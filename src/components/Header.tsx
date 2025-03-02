@@ -9,7 +9,10 @@ const HeroSection = () => {
           <img src={supreme} className="w-30 h-10"/>
         </div>
         <div className="flex items-center gap-4">
-          <button className="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-md">Contact Us</button>
+        <button className="hidden md:block bg-[#5cd6ff] text-white px-4 py-2 rounded-full">
+  Contact Us
+</button>
+
           <div className="hidden md:block flex gap-2">
             <a href="#" className="text-gray-600">🔗 LinkedIn</a>
             <a href="#" className="text-gray-600">📄 Docs</a>
