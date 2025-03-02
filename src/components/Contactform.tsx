@@ -9,7 +9,16 @@ const ContactForm = () => {
   });
   
   const [showPopup, setShowPopup] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    fullName:"",
+    email:"",
+    company:"",
+    message:""
+
+
+
+
+  });
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
