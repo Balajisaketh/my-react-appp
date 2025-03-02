@@ -1,8 +1,7 @@
 // import React from "react";
 import supreme from "../assets/Supreme_logos (3).png"
 // import FontAwesomeIcon from "@fortawesome/free-brands-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+
 
 const HeroSection = () => {
   return (
