@@ -273,7 +273,7 @@ export default function Banner() {
               onClick={()=>setHighlight("top")}
               className={highlight === "top" ? "text-white text-center" : "text-gray text-center  "}
             >
-              <div className={highlight === "top" ? "text-blue-500 text-center mx-auto" : "mx-auto text-gray text-center"} onClick={()=>{
+              <div className={highlight === "top" ? "text-white-500 text-center mx-auto" : "mx-auto text-gray text-center"} onClick={()=>{
  Setcat("passenger")
                 disp(setcriteriaa("passenger"))
               }
