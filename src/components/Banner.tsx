@@ -257,10 +257,10 @@ export default function Banner() {
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center p-8">
       {/* Main Content */}
-      <div className="w-full grid grid-cols-1 md:grid-cols-12 ">
+      <div className="w-full grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12">
         {/* Left Section */}
-        <div className="col-span-12 m-3 text-center md:col-span-12  text-center m-6">
-          <h2 className="text-lg  mb-2 md:text-3xl mb-2">
+        <div className="col-span-12 m-3 text-center md:col-span-12  text-center m-6 xl:col-span-12  text-center m-6">
+          <h2 className="text-lg  mb-2 md:text-3xl mb-2 lg:text-3xl mb-2">
             Evolving the drive with <span className="font-bold">360-degree</span>
           </h2>
           <h2 className="text-lg md:text-3xl">comprehensive solutions</h2>
@@ -406,10 +406,10 @@ export default function Banner() {
 {/* hu */}
 
         {/* Vertical Line with Content */}
-        <div className="hidden lg:flex col-span-12">
-        <div className="hidden lg:flex items-center space-x-6 py-10 mx-20 col-span-6  ">
+        <div className="hidden lg:flex col-span-12 xl:flex col-span-12   3xl:flex col-span-12 justify-evenly h-auto ">
+        <div className="hidden lg:flex items-center space-x-6 py-10 mx-20 col-span-6 xl:flex items-center space-x-6 py-10 mx-20 col-span-6  ">
           {/* Vertical Line (Height Adjusts Dynamically) */}
-          <div className="hidden md:block relative flex flex-col items-center">
+          <div className="hidden md:block relative flex flex-col items-center xl:block relative flex flex-col items-center">
             <div
               className={`w-1 transition-colors ${
                 highlight === "top" ? "bg-white" : "bg-gray-800"
@@ -424,7 +424,7 @@ export default function Banner() {
             ></div>
           </div>
 
-          <div ref={contentRef} className="sm:hidden md:flex flex-col justify-between space-y-10 col-span-10">
+          <div ref={contentRef} className="sm:hidden md:flex flex-col justify-between space-y-10 col-span-10 xl:flex flex-col justify-between space-y-10 col-span-10 2xl:flex flex-col justify-between space-y-10 col-span-12">
             {/* Top Content */}
             <button
               ref={topRef}
@@ -438,7 +438,7 @@ export default function Banner() {
 
                 // disp(setcriteriaa("passenger"))
                 }>
-                <h2 className="text-2xl m-2 font-semibold">Passenger Vehicles</h2>
+                <h2 className="text-2xl m-2 font-semibold xl:bg-red-900">Passenger Vehicles</h2>
                 <p className="text-sm m-2 font-base">Revving up innovation from </p>
                 <p className="text-sm m-2 font-base"> interior to exterior.</p>
               </div>
@@ -469,12 +469,12 @@ export default function Banner() {
             </button>
           </div>
         </div>
-        <div className="hidden md:block flex items-center space-x-6 py-10 mx-20 col-span-4">
+        <div className="hidden md:block flex items-center space-x-6 py-10 mx-20 col-span-4 ">
           {/* <h1>hy</h1> */}
           <div>
             
           <Veoverview/>
-          <div className="md:flex items-center space-x-5" style={cat!= "passenger" ?{visibility:"hidden"}:{}}>
+          <div className="md:flex items-center space-x-5   xl:flex items-center space-x-5 3xl:flex items-center space-x-5" style={cat!= "passenger" ?{visibility:"hidden"}:{}}>
           
           <div className="block"
         onClick={()=>disp(setcriteria("fullbody"))}
@@ -535,7 +535,7 @@ export default function Banner() {
        <p className="mx-auto text-center">Exterior</p>
        </div>
           </div>
-          <div className="sm:hidden md:flex items-center space-x-5 text-center px-20 mx-auto" style={cat!= "commercial" ?{visibility:"hidden"}:{}}>
+          <div className="sm:hidden md:flex items-center space-x-5 text-center px-20 mx-auto 3xl:bg-violet-200" style={cat!= "commercial" ?{visibility:"hidden"}:{}}>
           
           <div className="block"
         onClick={()=>disp(setcriteria("fullbodycommerce"))}

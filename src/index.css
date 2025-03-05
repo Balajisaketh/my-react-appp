@@ -67,3 +67,9 @@ button:focus-visible {
   }
 } */
 @import "tailwindcss";
+
+/* @import "tailwindcss"; */
+@theme {
+  
+  --breakpoint-3xl:1920px;
+}
